@@ -23,11 +23,11 @@ Documentation is at [docs/guide/README.md](docs/guide/README.md).
 
 Skelton Features
 -------------------
+1. Rbac (Role Bsed Access Control)
+2. Audit Trail
+3. Rest Api Modules
+4. Html Compression
 
-1.Rbac (Role Bsed Access Control)
-2.Audit Trail
-3.Rest Api Modules
-4.Html Compression
 
 
 DIRECTORY STRUCTURE
@@ -69,13 +69,13 @@ environments/            contains environment-based overrides
 ```
 
 Before Installation:
-
-1.Composer
-2.Make sure you are using php version > php 5.4 (Prefer PHP7), if not upgrade it.
-3.Check The following PHP extensions
-  Ctype extension 
-  MBString extension 
-  OpenSSL extension 
+-------------------
+1. Ensure Composer installed
+2. Make sure you are using php version > php 5.4 (Prefer PHP7), if not upgrade it.
+3. Check The following PHP extensions
+    Ctype extension 
+    MBString extension 
+    OpenSSL extension 
 4. enable mod_rewrite for Apache
 5. Enable Authorization in server | SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0 
 6. Enable short tag
