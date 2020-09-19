@@ -1,0 +1,27 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+# deal with dashboard first
+RewriteCond %{REQUEST_URI} ^/Skelton/(dashboard)
+RewriteRule ^dashboard/assets/(.*)$ backend/web/assets/$1 [L]
+RewriteRule ^dashboard/css/(.*)$ backend/web/css/$1 [L]
+RewriteRule ^dashboard/js/(.*)$ backend/web/js/$1 [L]
+RewriteRule ^dashboard/images/(.*)$ backend/web/images/$1 [L]
+RewriteRule ^dashboard/uploads/(.*)$ backend/web/uploads/$1 [L]
+RewriteCond %{REQUEST_URI} !^/backend/web/(assets|css|js|images|uploads)/
+RewriteCond %{REQUEST_URI} ^/Skelton/(dashboard)
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ backend/web/index.php [L]
+
+# deal with frontend second
+RewriteCond %{REQUEST_URI} ^/Skelton/(assets|css|js)
+RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
+RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
+RewriteCond %{REQUEST_URI} !^/Skelton/(frontend|backend|api)/web/(assets|css|js|images|uploads)/
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ frontend/web/index.php
+
